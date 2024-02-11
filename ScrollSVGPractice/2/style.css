@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, footer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat' sans-serif;
+}
+
+header h1{
+    font-size: 60px;
+}
+
+.animation{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: aqua;
+}
+.leap-text {
+    position: absolute;
+    font-size: 4em; /* Big text */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it's above the plane image if needed */
+    /* Add additional styling like color, font-family as desired */
+    color: #FFF; /* Example color */
+    text-align: center;
+    white-space: nowrap;
+}
+
+.paper-plane{
+    position: absolute;
+    height: 100px;
+    top: 50%;
+    left: 0%;
+    z-index: 5;
+}

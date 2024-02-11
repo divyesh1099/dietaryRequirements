@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice SVG Path</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+    <div class="line-container">
+        <svg viewBox="0 0 1064 1935" fill="none" preserveAspectRatio="xMidYmax meet">
+            <path d="M1.5 6.50001C6.66667 3.16667 20.2 -1.49999 33 6.50001C45.8 14.5 57 22.8333 61 26C64.1667 26.1667 71.2 28.8 74 38C77.5 49.5 72 49 90 64.5C108 80 108 82.5 121 85.5C134 88.5 146.5 75.5 155 80.5M155 80.5C161.8 84.5 217.167 102.5 244 111L234 189.5M155 80.5L117.5 156M234 189.5L117.5 156M234 189.5L219 266.5C207.333 289.333 174.6 331.1 137 315.5M117.5 156C110 178.333 93.3 227.5 86.5 245.5C78 268 90 296 137 315.5M137 315.5C137 321.1 116.667 385.5 106.5 417L65.5 403.5L143.5 429.5L281.5 93.5L302.5 85.5L327 156M327 156L281.5 172M327 156L358.5 237C358.5 257.833 350.8 301.1 320 307.5M320 307.5C289.2 313.9 272.833 310.167 268.5 307.5H320ZM320 307.5L350.5 411.5L385.5 403.5L304 429.5C282 436.833 229.7 462.4 196.5 506C155 560.5 57 591 65.5 638.5C74 686 135.5 691 219 716C302.5 741 420.5 760 498 760C575.5 760 598 760 695 760C792 760 744.5 747 852.5 760C969.026 786.526 1016 796 1032.52 813.079M1032.52 813.079C1033.44 814.028 1034.26 815 1035 816C1049 835 1068.5 864 1059.5 897.5C1050.5 931 1037 965 1017 975.5C997 986 988 989 976 993C964 997 915.5 960 913.5 947.5C911.5 935 875.5 895 900.5 850.5C925.5 806 968.5 796.5 976 796.5C982 796.5 1016.18 807.553 1032.52 813.079ZM976 988.5C966.333 992.5 947.3 1006.2 948.5 1029C949.7 1051.8 967.333 1059.83 976 1061C989.16 1062 1017.18 1067.1 1024 1079.5C1030.82 1091.9 967.84 1112.67 935.5 1121.5C920.667 1136.17 875.6 1171.2 814 1194C737 1222.5 755.5 1214.5 668.5 1224.5C581.5 1234.5 564.5 1231 486 1247C407.5 1263 401 1226.5 304 1273C233.5 1366 219 1399 219 1425C219 1451 219 1466 219 1500C219 1522.4 221.667 1550.67 223 1562M223 1562C227.833 1545 240.9 1510.3 254.5 1507.5C271.5 1504 290.5 1502 297 1511C303.5 1520 313 1536.5 307.5 1554C302 1571.5 261 1590 242 1590.5M223 1562C220.333 1556.33 213.8 1542.3 209 1531.5C203 1518 183.5 1491 159 1507.5C134.5 1524 141 1538 137 1549C133 1560 152.5 1578.5 168.5 1587C180.145 1593.19 203.71 1592.49 223 1591.45M242 1590.5H363V1666.5H341.5M242 1590.5C236.829 1590.64 230.213 1591.07 223 1591.45M223 1591.45L83.5 1594V1666.5H104.5M223 1591.45V1786M223 1786H341.5M223 1786H104.5V1666.5M341.5 1786V1666.5M341.5 1786C412 1801.5 387 1799.5 439.5 1809C492 1818.5 499 1801 522.5 1821C546 1841 569.5 1859 561 1869.5C552.5 1880 568.5 1883 538 1890.5C507.5 1898 506.5 1882 485.5 1903.5C464.5 1925 451 1920.5 453 1934.5M341.5 1666.5H104.5" stroke="black" stroke-width="4"/>
+            </svg>            
+    </div>
+
+    <section class="one">
+        <h1 class="scroll" data-rate=".4" data-direction="vertical">Ocean Stuff</h1>
+    </section>
+
+    <section class="two">
+        <h1 class="scroll" data-rate=".4" data-direction="vertical">Omg Scroll</h1>
+        <p>Big Watermark</p>
+    </section>
+    <script>
+        let path=document.querySelector('path');
+        let pathLength=path.getTotalLength();
+
+        path.style.strokeDasharray = pathLength+ " " + pathLength;
+        path.style.strokeDashoffset = pathLength;
+        window.addEventListener('scroll', ()=> {
+            var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+
+            var drawLength = pathLength * scrollPercentage;
+
+            path.style.strokeDashoffset = pathLength - drawLength;
+
+        });
+        
+    </script>
+</body>
+</html>

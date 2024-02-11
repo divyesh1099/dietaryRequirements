@@ -1,0 +1,48 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white; /* Light text for dark theme */
+    background-color: #121212; /* Dark theme background */
+    opacity: 0; /* Start invisible for animation */
+    font-size: 4em;
+}
+.section p{
+    text-align: center;
+}
+select, input[type="text"], input[type="email"] {
+    width: 60%; /* Adjust width as needed */
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: transparent; /* Transparent background */
+    color: #fff; /* Light text */
+    border-bottom: 2px solid #555; /* Minimalistic bottom border */
+    border-radius: 0; /* Remove border radius for a flat design */
+    outline: none; /* Remove focus outline */
+}
+select option {
+    background-color: #333; /* Dark background for options */
+    color: white; /* Ensure options are readable */
+}
+.submitBtn {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover {
+    background-color: #444;
+}
