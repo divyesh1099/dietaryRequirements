@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
-<div id="greeting" class="section">Good Afternoon</div>
+<div id="greeting" class="section">Hi There</div>
 
 <form method="post" action="{% url 'home:index' %}">
     {% csrf_token %}
