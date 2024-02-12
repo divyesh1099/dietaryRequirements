@@ -16,11 +16,11 @@
         <p>Lunch will be catered as per your dietary preferences.</p>
         <p>The food will be {{ request.session.user_details.diet }}</p>
         {% if request.session.user_details.diseases %}
-        <p> No food triggering {{ request.session.user_details.diseases }} will be served to you. </p>
+        <p> No food triggering {{ request.session.user_details.diseases }} will be served to you. Instead another accommodation are arranged for you. </p>
         {% endif %}
 
         {% if request.session.user_details.allergies %}
-        <p>No food will inhibit {{ request.session.user_details.allergies }}.</p>
+        <p>No food will inhibit {{ request.session.user_details.allergies }}, or any other allegy will be served for you, instead other accomodations will be arranged for you.</p>
         {% endif %}
         
     </section>
