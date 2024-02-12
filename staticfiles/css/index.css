@@ -13,7 +13,7 @@ body, html {
     color: white; /* Light text for dark theme */
     background-color: #121212; /* Dark theme background */
     opacity: 0; /* Start invisible for animation */
-    font-size: 4em;
+    font-size: 2em;
 }
 .section p{
     text-align: center;
