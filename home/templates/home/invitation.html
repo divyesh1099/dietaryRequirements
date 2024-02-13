@@ -35,6 +35,15 @@
     </section>
 
     <section class="invitation-section">
+        <h2>Food Menu</h2>
+        <p>{{ request.session.user_details.diet|capfirst }} Biryani curated for you.</p>
+        <p>Optional Icecrem and/or Rasgulla</p>
+        <div class="animation">
+            <img class="animated-element animated-star" src="{% static 'images/star.png' %}" alt="Animated Star">
+        </div>
+    </section>
+
+    <section class="invitation-section">
         <h2>Gift for You</h2>
         <p>As a token of appreciation, every guest will receive a special return gift. It’s a surprise I hope you'll love!</p>
         <div class="animation">
