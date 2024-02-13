@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dietary Summary</title>
+</head>
+<body>
+    <h1>Dietary Preferences Summary</h1>
+    
+    <h2>Diet Counts</h2>
+    <ul>
+        {% for diet in diet_counts %}
+            <li>{{ diet.diet }}: {{ diet.total }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Health Concerns</h2>
+    <p>Number of people with diseases: {{ disease_count }}</p>
+    <p>Number of people with allergies: {{ allergy_count }}</p>
+</body>
+</html>

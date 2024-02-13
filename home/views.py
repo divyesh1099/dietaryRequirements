@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import DietaryPreference
+from django.db.models import Count, Q
 
 # Create your views here.
 def index(request):
@@ -37,3 +38,18 @@ def invitation(request):
     user_details = request.session.get('user_details', {})
 
     return render(request, 'home/invitation.html', {'user_details': user_details})
+
+def summary(request):
+    # Count for each diet type
+    diet_counts = DietaryPreference.objects.values('diet').annotate(total=Count('diet')).order_by('diet')
+
+    # Count for entries with diseases and allergies
+    disease_count = DietaryPreference.objects.exclude(diseases='').count()
+    allergy_count = DietaryPreference.objects.exclude(allergies='').count()
+
+    context = {
+        'diet_counts': diet_counts,
+        'disease_count': disease_count,
+        'allergy_count': allergy_count,
+    }
+    return render(request, 'home/summary.html', context)
