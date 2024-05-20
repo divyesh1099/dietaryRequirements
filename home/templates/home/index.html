@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
-<div id="greeting" class="section">Hi There</div>
+<div id="greeting" class="section"><strong>Hi There!</strong> (Scroll Down)</div>
 
 <form method="post" action="{% url 'home:index' %}">
     {% csrf_token %}
@@ -21,9 +21,9 @@
         <p>Do you prefer a vegetarian or non-vegetarian diet?</p>
         <select name="diet" required>
             <option value="">Select your preference</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="non-vegetarian">Non-Vegetarian</option>
-            <option value="vegan">Vegan</option>
+            {% for diet_preference in diet_preferences %}
+                <option value="{{ diet_preference.name|lower }}">{{ diet_preference.name }}</option>
+            {% endfor %}
         </select>
     </div>
 

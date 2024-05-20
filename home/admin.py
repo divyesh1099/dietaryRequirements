@@ -7,3 +7,5 @@ class DietaryPreferenceAdmin(admin.ModelAdmin):
     search_fields = ('name', 'diseases', 'allergies')  # Enable search
 
 admin.site.register(DietaryPreference, DietaryPreferenceAdmin)
+admin.site.register(InvitationDetail)
+admin.site.register(DietPreference)

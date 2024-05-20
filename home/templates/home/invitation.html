@@ -1,34 +1,32 @@
-<!-- invitation.html -->
 {% extends 'layout.html' %}
 {% load static %}
 
 {% block content %}
 <body class="dark-theme">
     <header>
-        <h1>Welcome to the Party, {{ request.session.user_details.name }}!</h1>
+        <h1>Welcome to the Party, {{ user_details.name }}!</h1>
     </header>
     <section class="invitation-section">
-        <h2>One party Lunch Together!</h2>
+        <h2>{{ party_title }}</h2>
         <div class="animation">
             <img class="animated-element animated-balloon" src="{% static 'images/balloon.png' %}" alt="Animated Balloon">
         </div>
-        <p>Join me for an afternoon of lunch and fun.</p>
+        <p>{{ party_message }}</p>
         <p>Lunch will be catered as per your dietary preferences.</p>
-        <p>The food will be {{ request.session.user_details.diet }}</p>
-        {% if request.session.user_details.diseases %}
-        <p> No food triggering {{ request.session.user_details.diseases }} will be served to you. Instead another accommodation are arranged for you. </p>
+        <p>You will be served {{ user_details.diet }} food.</p>
+        {% if user_details.diseases %}
+        <p>No food triggering {{ user_details.diseases }} will be served to you. Instead, other accommodations are arranged for you.</p>
         {% endif %}
 
-        {% if request.session.user_details.allergies %}
-        <p>No food will inhibit {{ request.session.user_details.allergies }}, or any other allegy will be served for you, instead other accomodations will be arranged for you.</p>
+        {% if user_details.allergies %}
+        <p>No food will inhibit {{ user_details.allergies }} or any other allergy. Instead, other accommodations will be arranged for you.</p>
         {% endif %}
-        
     </section>
     <section class="invitation-section">
         <h2>Details</h2>
-        <p>Date: Wednesday, 14th February</p>
-        <p>Time: 01:00 PM onwards</p>
-        <p>Location: ILMS</p>
+        <p>Date: {{ party_date }}</p>
+        <p>Time: {{ party_time }} {{ timezone }}</p>
+        <p>Location: {{ party_location }}</p>
         <div class="animation">
             <img class="animated-element animated-confetti" src="{% static 'images/confetti.png' %}" alt="Animated Confetti">
         </div>
@@ -36,19 +34,22 @@
 
     <section class="invitation-section">
         <h2>Food Menu</h2>
-        <p>{{ request.session.user_details.diet|capfirst }} Biryani curated for you.</p>
-        <p>Optional Icecream and/or Rasgulla</p>
+        <p>{{ main_course }}</p>
+        <p>{{ optional_items }}</p>
         <div class="animation">
             <img class="animated-element animated-star" src="{% static 'images/star.png' %}" alt="Animated Star">
         </div>
     </section>
+    
 
+    {% if gift %}
     <section class="invitation-section">
         <h2>Gift for You</h2>
-        <p>As a token of appreciation, every guest will receive a special return gift. It’s a surprise I hope you'll love!</p>
+        <p>{{ gift_message }}</p>
         <div class="animation">
             <img class="animated-element animated-gift" src="{% static 'images/gift.png' %}" alt="Animated Gift">
         </div>
     </section>
+    {% endif %}
 </body>
 {% endblock %}
